@@ -31365,7 +31365,7 @@ section.svg-container:nth-last-of-type(0) svg.radial-progress {
 .rts-contact-area.contact-one::after {
   position: absolute;
   content: "";
-  background-image: url(../images/contact/shape/01.png);
+  /* background-image: url(../images/contact/shape/01.png); */
   right: 10%;
   top: -8%;
   height: 190px;
