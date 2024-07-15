@@ -7,6 +7,8 @@ class Admincontroller extends CI_Controller{
         date_default_timezone_set('Asia/Kolkata');
         if(!isset($_SESSION['admin_id'])){
             redirect(base_url()."adminlogincontroller/");
+
+            
         }
 
     }
@@ -39,10 +41,20 @@ class Admincontroller extends CI_Controller{
             $class_logo=time().rand(1111,9999).$_FILES['class_logo']['name'];
             move_uploaded_file($_FILES['class_logo']['tmp_name'],"public/upload/class_logo/$class_logo");
             $_POST['class_logo']=$class_logo;
+            if(isset($_SESSION['admin_id'])){
+                $_POST['admin_id']=$_SESSION['admin_id'];
+                $_POST['entry_time']=time();
+                $_POST['status']='Active';
+            }
             $this->My_model->update_cond("basic_info_tbl",$_POST,['basic_id'=>1]);
             redirect(base_url()."admincontroller/basic_info");
         }
         else{
+            if(isset($_SESSION['admin_id'])){
+                $_POST['admin_id']=$_SESSION['admin_id'];
+                $_POST['entry_time']=time();
+                $_POST['status']='Active';
+            }
             $this->My_model->update_cond("basic_info_tbl",$_POST,['basic_id'=>1]);
             redirect(base_url()."admincontroller/basic_info");
         }
@@ -54,6 +66,11 @@ class Admincontroller extends CI_Controller{
     public function save_slider_info(){ 
         $slider_image=time().rand(1111,9999).$_FILES['slider_image']['name'];
         $_POST['slider_image']=$slider_image;
+        if(isset($_SESSION['admin_id'])){
+            $_POST['admin_id']=$_SESSION['admin_id'];
+            $_POST['entry_time']=time();
+            $_POST['status']='Active';
+        }
         move_uploaded_file($_FILES['slider_image']['tmp_name'],"public/upload/slider_image/$slider_image");
         $this->My_model->insert("slider_tbl",$_POST);
         redirect(base_url()."admincontroller/slider");
@@ -70,9 +87,19 @@ class Admincontroller extends CI_Controller{
             $slider_image=time().rand(1111,9999).$_FILES['slider_image']['name'];
             move_uploaded_file($_FILES['slider_image']['tmp_name'],"public/upload/slider_image/$slider_image");
             $_POST['slider_image']=$slider_image;
+            if(isset($_SESSION['admin_id'])){
+                $_POST['admin_id']=$_SESSION['admin_id'];
+                $_POST['entry_time']=time();
+                $_POST['status']='Active';
+            }
             $this->My_model->update_cond("slider_tbl",$_POST,['slider_id'=>$_POST['slider_id']]);
             redirect(base_url()."admincontroller/slider");
         }else{
+            if(isset($_SESSION['admin_id'])){
+                $_POST['admin_id']=$_SESSION['admin_id'];
+                $_POST['entry_time']=time();
+                $_POST['status']='Active';
+            }
             $this->My_model->update_cond("slider_tbl",$_POST,['slider_id'=>$_POST['slider_id']]);
             redirect(base_url()."admincontroller/slider");
         }
@@ -88,6 +115,11 @@ class Admincontroller extends CI_Controller{
         $this->ov("course",$data);
     }
     public function save_course(){
+        if(isset($_SESSION['admin_id'])){
+            $_POST['admin_id']=$_SESSION['admin_id'];
+            $_POST['entry_time']=time();
+            $_POST['status']='Active';
+        }
         $this->My_model->insert("course_tbl",$_POST);
         redirect(base_url()."admincontroller/course");
     }
@@ -96,6 +128,11 @@ class Admincontroller extends CI_Controller{
         $this->ov("edit_course",$data);
     }
     public function update_course(){
+        if(isset($_SESSION['admin_id'])){
+            $_POST['admin_id']=$_SESSION['admin_id'];
+            $_POST['entry_time']=time();
+            $_POST['status']='Active';
+        }
         $this->My_model->update_cond("course_tbl",$_POST,['course_id'=>$_POST['course_id']]);
         redirect(base_url()."admincontroller/course");
     }

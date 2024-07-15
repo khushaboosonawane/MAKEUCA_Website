@@ -104,19 +104,25 @@
                                 foreach($slider_data as $key=>$row){
                                     ?>
                                     <tr>
-                                        <td>
+                                        <td class="d-flex">
                                             <a href="<?= base_url() ?>admincontroller/edit_slider/<?= $row['slider_id'] ?>">
-                                                <button class="btn btn-success btn-sm">Edit</button>
-                                            </a>
+                                                <button class="btn btn-success btn-sm">
+                                                <i class="ri-edit-box-line"></i>
+                                                </button>
+                                            </a> &nbsp;&nbsp;
                                             <a href="<?= base_url() ?>admincontroller/delete_slider/<?= $row['slider_id'] ?>">
-                                                <button class="btn btn-danger btn-sm" onclick="return confirm('Are You Sure To Delete Record')">Delete</button>
+                                                <button class="btn btn-danger btn-sm" onclick="return confirm('Are You Sure To Delete Record')">
+                                                <i class="ri-delete-bin-5-line"></i>
+                                                </button>
                                             </a>
                                         </td>
                                         <td><?= $key+1 ?></td>
                                         <td><?= $row['slider_title'] ?></td>
                                         <td><?= $row['slider_sub_title'] ?></td>
                                         <td>
-                                            <img src="<?= base_url() ?>public/upload/slider_image/<?= $row['slider_image'] ?> " style="height:100px;width:100px;" alt="">
+                                            <a href="<?= base_url() ?>public/upload/slider_image/<?= $row['slider_image'] ?>">
+                                                <img src="<?= base_url() ?>public/upload/slider_image/<?= $row['slider_image'] ?> " style="height:100px;width:100px;object-fit:contain" alt="" target="__blank">
+                                            </a>
                                         </td>
                                     </tr>
                                     <?php

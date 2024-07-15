@@ -11,14 +11,11 @@ defined("BASEPATH") or exit("no direct script access is allowed");
     <title>MAKEUCA CA/CS/CMA Test Series and Mentoring – MAKEUCA CA/CS/CMA Test Series and Mentoring</title>
     <!-- <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>public/user_assets/assets/images/fav.png"> -->
 
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url() ?>public/user_assets/assets/favicon_package_v0.16 (1)/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url() ?>public/user_assets/assets/favicon_package_v0.16 (1)/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>public/user_assets/assets/favicon_package_v0.16 (1)/favicon-16x16.png">
-    <link rel="manifest" href="<?= base_url() ?>public/user_assets/assets/favicon_package_v0.16 (1)/site.webmanifest">
-    <link rel="mask-icon" href="<?= base_url() ?>public/user_assets/assets/favicon_package_v0.16 (1)/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url() ?>public/upload/class_logo/<?= $basic_info[0]['class_logo'] ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url() ?>public/upload/class_logo/<?= $basic_info[0]['class_logo'] ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>public/upload/class_logo/<?= $basic_info[0]['class_logo'] ?>">
+    <link rel="manifest" href="<?= base_url() ?>public/upload/class_logo/<?= $basic_info[0]['class_logo'] ?>">
+    <link rel="mask-icon" href="<?= base_url() ?>public/upload/class_logo/<?= $basic_info[0]['class_logo'] ?>" color="#5bbad5">
     <link rel="stylesheet" href="<?= base_url() ?>public/user_assets/assets/css/plugins/swiper.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>public/user_assets/assets/css/plugins/fontawesome-5.css">
     <link rel="stylesheet" href="<?= base_url() ?>public/user_assets/assets/css/plugins/animate.min.css">
@@ -40,7 +37,16 @@ defined("BASEPATH") or exit("no direct script access is allowed");
                 <div class="left-header-top">
                     <p class="top-details">
                         <marquee behavior="scroll" direction="left">
+                            <?php
+                            if(count($basic_info)>0){
+                                echo $basic_info[0]['important_info'];
+                            }else{
+                                ?>
                             Read our success stories on new Testimonial page.
+
+                                <?php
+                            }
+                            ?>
                         </marquee>
                     </p>
                 </div>
@@ -49,16 +55,39 @@ defined("BASEPATH") or exit("no direct script access is allowed");
                         <!-- <i class="far fa-clock"></i>
                         <span>Working: 8.00am - 5.00pm</span> -->
                         <i class="ri-phone-fill" style="font-size:20px"></i>
-                        <span>+91 75867874674</span>
+                        <?php
+                            if(count($basic_info)>0){
+                                ?>
+                                <span>+91 <?= $basic_info[0]['whatsapp_number'] ?></span>
+                                <?php
+                            }else{
+                                ?>
+                                <span>+91 75867874674</span>
+                                <?php
+                            }
+                        ?>
 
                     </div>
                     <div class="ht-social">
                         <span>Visit Us:</span>
                         <ul style="display:flex">
                             <li style="margin:10px 0px">
-                                <a href="">
-                                <i class="ri-whatsapp-line" style="font-size:22px"></i>
+                            <?php
+                            if(count($basic_info)>0){
+                                ?>
+                                <a href="tel:<?= $basic_info[0]['whatsapp_number'] ?>">
+                                    <i class="ri-whatsapp-line" style="font-size:22px"></i>
                                 </a>
+                                <?php
+                            }else{
+                                ?>
+                                <a href="">
+                                    <i class="ri-whatsapp-line" style="font-size:22px"></i>
+                                </a>
+                                <?php
+                            }
+                            ?>
+                                
                             </li>
                         
                         </ul>
@@ -71,8 +100,19 @@ defined("BASEPATH") or exit("no direct script access is allowed");
         <div class="main-header">
             <div class="content" style="height:83px">
                 <div class="header-left">
-                    <a class='thumbnail' href='index.html'>
-                        <img src="https://makeuca.live/wp-content/uploads/2023/11/make-u-ca-logo-education-1024x405.png"  style="margin-top:-10px" alt="">
+                    <a class='thumbnail' href='<?= base_url() ?>usercontroller/'>
+                        <?php
+                            if(count($basic_info)>0){
+                                ?>
+                                <img src="<?= base_url() ?>public/upload/class_logo/<?= $basic_info[0]['class_logo'] ?>"  style="margin-top:-10pxheight:150px;width:150px" alt="">
+
+                                <?php
+                            }else{
+                                ?>
+                               <img src="http://localhost/PROJECT/MAKEUCA_Website/public/upload/class_logo/17210280782533make-u-ca-logo-education-1024x405.png" alt="">
+                                <?php
+                            }
+                            ?>
                     </a>
                     <nav class="nav-main mainmenu-nav d-none d-xl-block">
                         <ul class="mainmenu">
@@ -254,16 +294,46 @@ defined("BASEPATH") or exit("no direct script access is allowed");
         <button class="close-icon-menu"><i class="far fa-times"></i></button>
         <!-- inner menu area desktop start -->
         <div class="rts-sidebar-menu-desktop">
-            <a class='logo-1' href='index.html'>
-                <img class="logo" src="https://makeuca.live/wp-content/uploads/2023/11/make-u-ca-logo-education-1024x405.png" alt="finbiz_logo" style="height:100px;width:156px">
+            <?php
+            if(count($basic_info)>0){
+                ?>
+                <a class='logo-1' href='<?= base_url() ?>usercontroller/'>
+                <img class="logo" src="<?= base_url() ?>public/upload/class_logo/<?= $basic_info[0]['class_logo'] ?>" alt="makeuca_logo" style="height:100px;width:156px">
+                </a>
+                <a class='logo-2' href='<?= base_url() ?>usercontroller/'><img class="logo" src="<?= base_url() ?>public/upload/class_logo/<?= $basic_info[0]['class_logo'] ?>" alt="makeuca_logo"></a>
+                <a class='logo-3' href='<?= base_url() ?>usercontroller/'><img class="logo" src="<?= base_url() ?>public/upload/class_logo/<?= $basic_info[0]['class_logo'] ?>" alt="makeuca_logo"></a>
+                <a class='logo-4' href='<?= base_url() ?>usercontroller/'><img class="logo" src="<?= base_url() ?>public/upload/class_logo/<?= $basic_info[0]['class_logo'] ?>" alt="makeuca_logo"></a>
+                <?php
+            }else{
+                ?>
+            <a class='logo-1' href='<?= base_url() ?>usercontroller/'>
+                <img class="logo" src="https://makeuca.live/wp-content/uploads/2023/11/make-u-ca-logo-education-1024x405.png" alt="makeuca_logo" style="height:100px;width:156px">
             </a>
-            <a class='logo-2' href='index.html'><img class="logo" src="https://makeuca.live/wp-content/uploads/2023/11/make-u-ca-logo-education-1024x405.png" alt="finbiz_logo"></a>
-            <a class='logo-3' href='index.html'><img class="logo" src="https://makeuca.live/wp-content/uploads/2023/11/make-u-ca-logo-education-1024x405.png" alt="finbiz_logo"></a>
-            <a class='logo-4' href='index.html'><img class="logo" src="https://makeuca.live/wp-content/uploads/2023/11/make-u-ca-logo-education-1024x405.png" alt="finbiz_logo"></a>
+            <a class='logo-2' href='<?= base_url() ?>usercontroller/'><img class="logo" src="https://makeuca.live/wp-content/uploads/2023/11/make-u-ca-logo-education-1024x405.png" alt="makeuca_logo"></a>
+            <a class='logo-3' href='<?= base_url() ?>usercontroller/'><img class="logo" src="https://makeuca.live/wp-content/uploads/2023/11/make-u-ca-logo-education-1024x405.png" alt="makeuca_logo"></a>
+            <a class='logo-4' href='<?= base_url() ?>usercontroller/'><img class="logo" src="https://makeuca.live/wp-content/uploads/2023/11/make-u-ca-logo-education-1024x405.png" alt="makeuca_logo"></a>
+                <?php
+            }
+            ?>
+            
             <div class="body d-none d-xl-block">
-                <p class="disc">
-                Expert and Experience Paper Setter and Paper Checker Team · Sharpen yourself with our Cumulative Tests · Get world class evaluation from
-                </p>
+            <?php
+                if(count($basic_info)>0){
+                    ?>
+                    <p class="disc">
+                        <?= $basic_info[0]['about_information'] ?>
+                    </p>
+                    <?php
+                }else{
+                    ?>
+                    <p class="disc">
+                    Expert and Experience Paper Setter and Paper Checker Team · Sharpen yourself with our Cumulative Tests · Get world class evaluation from
+                    </p>
+
+                    <?php
+                }
+            ?>
+                
                 <div class="get-in-touch">
                     <!-- title -->
                     <div class="h6 title">Get In Touch</div>
@@ -272,33 +342,61 @@ defined("BASEPATH") or exit("no direct script access is allowed");
                         <!-- single -->
                         <div class="single">
                             <i class="fas fa-phone-alt"></i>
-                            <a href="#">+8801234566789</a>
+                            <?php
+                            if(count($basic_info)>0){
+                                ?>
+                                <?= $basic_info[0]['whatsapp_number'] ?>
+                                <?php
+                            }else{
+                                ?>
+                                <a href="#">+8801234566789</a>
+                                <?php
+                            }
+                            ?>
                         </div>
                         <!-- single ENd -->
                         <!-- single -->
                         <div class="single">
                             <i class="fas fa-envelope"></i>
-                            <a href="#">example@gmail.com</a>
-                        </div>
-                        <!-- single ENd -->
-                        <!-- single -->
-                        <div class="single">
-                            <i class="fas fa-globe"></i>
-                            <a href="#">www.webexample.com</a>
+                            
+                            <?php
+                            if(count($basic_info)>0){
+                                ?>
+                                <a href="#"><?= $basic_info[0]['email_address'] ?></a>
+                                <?php
+                            }else{
+                                ?>
+                                <a href="#">example@gmail.com</a>
+                                <?php
+                            }
+                            ?>
                         </div>
                         <!-- single ENd -->
                         <!-- single -->
                         <div class="single">
                             <i class="fas fa-map-marker-alt"></i>
-                            <a href="#">13/A, New Pro State, NYC</a>
+                            <?php
+                            if(count($basic_info)>0){
+                                ?>
+                                 <a href="<?= $basic_info[0]['map_link'] ?>">
+                                    <?= $basic_info[0]['class_add'] ?>
+                                 </a>
+                                <?php
+                            }else{
+                                ?>
+                             <a href="#">13/A, New Pro State, NYC</a>
+                                <?php
+                            }
+                            ?>
+                           
                         </div>
                         <!-- single ENd -->
                     </div>
                     <div class="social-wrapper-two menu">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="<?= $basic_info[0]['facebook'] ?>"><i class="fab fa-facebook-f"></i></a>
+                        <a href="<?= $basic_info[0]['twitter'] ?>"><i class="fab fa-twitter"></i></a>
+                        <a href="<?= $basic_info[0]['insta_link'] ?>"><i class="fab fa-instagram"></i></a>
+                        <a href="tel:<?= $basic_info[0]['whatsapp_number'] ?>"><i class="fab fa-whatsapp"></i></a>
                         <!-- <a href="#"><i class="fab fa-linkedin"></i></a> -->
                     </div>
                 </div>

@@ -1,20 +1,19 @@
 <!-- footer area start -->
-<div class="rts-footer-area p-5 footer-two footer-bg-two  mt_md--80 mt_sm--60">
+    <div class="rts-footer-area p-5 footer-two footer-bg-two  mt_md--80 mt_sm--60">
         <div class="container">
             <div class="row d-flex justify-content-around align-items-center">
                 <!-- single wized -->
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                     <div class="footer-two-single-wized left">
                         <h3 class="title">
-                            <img src="https://makeuca.live/wp-content/uploads/2023/11/make-u-ca-logo-education-1024x405.png" style="height:150px;width:150px;object-fit:contain" alt="">
+                            <img src="<?= base_url() ?>public/upload/class_logo/<?= $basic_info[0]['class_logo'] ?>" style="height:150px;width:150px;object-fit:contain" alt="">
                         </h3>
-                        <p class="disc">
-                            Felis consequat magnis est fames sagittis ultrices placerat sodales porttitor quisque.
+                        <p class="disc" style="margin-top:-44px">
+                            <?= $basic_info[0]['about_information'] ?>
                         </p>
-                        <a class="rts-btn btn-primary-2 color-h-black" href="#">Get a Quote</a>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 my-5">
                     <div class="footer-two-single-wized two">
                         <div class="wized-title-area">
                             <h5 class="wized-title">Our Services</h5>
@@ -34,7 +33,7 @@
                     </div>
                 </div>
                 <!-- single wized -->
-                <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 col-12 my-5">
                     <div class="footer-two-single-wized">
                         <div class="wized-title-area">
                             <h5 class="wized-title">Contact Us</h5>
@@ -47,7 +46,7 @@
                                 </div>
                                 <div class="disc">
                                     <span>Call Us 24/7</span>
-                                    <a href="#">(+256) 2145.2156</a>
+                                    <a href="tel:<?= $basic_info[0]['whatsapp_number'] ?>"><?= $basic_info[0]['whatsapp_number'] ?></a>
                                 </div>
                             </div>
                             <div class="contact-info-1">
@@ -56,7 +55,7 @@
                                 </div>
                                 <div class="disc">
                                     <span>Work with us</span>
-                                    <a href="#">info@finbiz.com</a>
+                                    <a href="mailto:<?= $basic_info[0]['email_address'] ?>"><?= $basic_info[0]['email_address'] ?></a>
                                 </div>
                             </div>
                             
@@ -65,7 +64,7 @@
                 </div>
                 <!-- single wized -->
                 <!-- single wized -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 my-5">
                     <div class="footer-two-single-wized right">
                         <div class="wized-2-body">
                             <div class="contact-info-1">
@@ -74,8 +73,7 @@
                                 </div>
                                 <div class="disc">
                                     <span>Our Location</span>
-                                    <a href="#">XYZ Hilton Street, 125 Town <br>
-                                    United State</a>
+                                    <a href="<?= $basic_info[0]['map_link'] ?>"><?= $basic_info[0]['class_add'] ?></a>
                                 </div>
                             </div>
                         </div>
@@ -83,17 +81,17 @@
                 </div>
                 <!-- single wized -->
             </div>
+
         </div>
     </div>
-    <!-- footer area end -->
 
     <!-- copyright-area start -->
-    <div class="rts-copy-right ptb--30">
+    <div class="rts-copy-right ptb--30 bg-dark text-white">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="copyright-h-2-wrapper">
-                        <p class="disc">
+                        <p class="disc text-white">
                             Made By @A2Z Infotech
                         </p>
                         <!-- <div class="right">
@@ -145,7 +143,4 @@
     <script src="<?= base_url() ?>public/user_assets/assets/js/main.js"></script>
     <!-- scripts end form hear -->
 </body>
-
-
-<!-- Mirrored from finbiz-html.netlify.app/finbiz-html/index-two by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jul 2024 12:45:13 GMT -->
 </html>

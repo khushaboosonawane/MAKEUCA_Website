@@ -4,6 +4,33 @@
     <div class="rts-banner-area-two">
         <div class="swiper mySwiperh2_banner">
             <div class="swiper-wrapper">
+                <?php
+                if(count($slider_info)>0){
+                    foreach($slider_info as $key=>$row){
+                        ?>
+                        <div class="swiper-slide">
+                            <div class="banner-two" style="background-image:url(<?= base_url() ?>public/upload/slider_image/<?= $row['slider_image'] ?>);background-size:cover;background-repeat:no-repeat;">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="banner-two-content text-center">
+                                                <div class="wrapper">
+                                                    <span class="sub"><?= $row['slider_sub_title'] ?></span>
+                                                    <h1 class="title">
+                                                        <span><?= $row['slider_title'] ?></span>
+                                                    </h1>
+                                                    <a class="rts-btn btn-primary-2" href="#">Enqiure Now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                }else{
+                    ?>
                 <div class="swiper-slide">
                     <div class="banner-two" style="background-image:url('https://st4.depositphotos.com/3367263/19970/i/450/depositphotos_199707812-stock-photo-digital-composite-books-graduation-hat.jpg');background-size:cover;background-repeat:no-repeat;">
                         <div class="container">
@@ -63,6 +90,10 @@
                         </div>
                     </div>
                 </div>
+                    <?php
+                }
+                ?>
+                
             </div>
         </div>
     </div>
@@ -282,52 +313,12 @@
        <!-- start project with us section -->
     <div class="rts-project-area rts-section-gap bg-project-three margin-controlerproject  mt_sm--0" id="Enquire">
         <div class="container controler">
-            <div class="row g-0">
-                <div class="col-lg-7">
-                    <!-- project area left wrapper -->
-                    <div class="title-area-project-w-in">
-                        <span class="sub">
-                            Make An Enquire
-                        </span>
-                        <h2 class="title">
-                            START SHARING YOUR DOUTS  <br> <span>WITH US!</span>
-                        </h2>
-                        <p class="disc">
-                            Penatibus habitant ligula dapibus rhoncus dictum viverra gravida <br> elementum, integer
-                            potenti
-                            dui et molestie ante...
-                        </p>
-                        <div class="bg-email">
-                            <div class="content-wrapper">
-                                <!-- single-contact info -->
-                                <div class="contact-info">
-                                    <div class="icon">
-                                        <img src="<?= base_url() ?>public/user_assets/assets/images/product/icon/01.jpg" alt="Product_icon">
-                                    </div>
-                                    <div class="discription">
-                                        <span>Need any help?</span>
-                                        <h5 class="title-sm">+254 21456.21458</h5>
-                                    </div>
-                                </div>
-                                <!-- single-contact info End -->
-                                <!-- single-contact info -->
-                                <div class="contact-info">
-                                    <div class="icon">
-                                        <img src="<?= base_url() ?>public/user_assets/assets/images/product/icon/02.jpg" alt="Product_icon">
-                                    </div>
-                                    <div class="discription">
-                                        <span>Email us anytime</span>
-                                        <h5 class="title-sm">info@example.com</h5>
-                                    </div>
-                                </div>
-                                <!-- single-contact info End -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- project area left wrapper end -->
+            <div class="row g-0 my-5">
+                <div class="col-lg-6" style="margin-top:-30px">
+                    <img src="https://makeuca.live/wp-content/uploads/2023/12/222-1024x1024.png" alt="">
                 </div>
-                <div class="col-lg-5">
-                    <div class="bg-input-project">
+                <div class="col-lg-6">
+                    <div class="bg-input-project" style="margin:0px">
                         <div class="product-form">
                             <div id="form-messages"></div>
                             <form id="contact-form" action="https://finbiz-html.netlify.app/finbiz-html/mailer.php" method="post">
